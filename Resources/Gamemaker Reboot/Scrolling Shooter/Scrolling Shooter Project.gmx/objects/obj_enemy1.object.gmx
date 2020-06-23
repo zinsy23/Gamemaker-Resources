@@ -48,7 +48,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if y &gt; room_height + 32{
+            <string>pause();
+if y &gt; room_height + 32{
     x = random(room_width);
     y = -16;
 }

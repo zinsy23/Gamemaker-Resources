@@ -71,7 +71,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if keyboard_check(vk_left) &amp;&amp; x &gt; 40 x -= 4;
+            <string>pause();
+if keyboard_check(vk_left) &amp;&amp; x &gt; 40 x -= 4;
 if keyboard_check(vk_up) &amp;&amp; y &gt; 40 y -= 2;
 if keyboard_check(vk_right) &amp;&amp; x &lt; room_width - 40 x += 4;
 if keyboard_check(vk_down) &amp;&amp; y &lt; room_height - 40 y += 2;

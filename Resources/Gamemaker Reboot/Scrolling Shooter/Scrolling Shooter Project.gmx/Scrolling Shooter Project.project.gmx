@@ -22,6 +22,11 @@
     <background>background\back_water</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\highscore.gml</script>
+    <script>scripts\getScores.gml</script>
+    <script>scripts\pause.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_island1</object>
     <object>objects\obj_island2</object>
@@ -32,6 +37,7 @@
     <object>objects\obj_explosion1</object>
     <object>objects\obj_explosion2</object>
     <object>objects\controller_enemy</object>
+    <object>objects\controller_highscore</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

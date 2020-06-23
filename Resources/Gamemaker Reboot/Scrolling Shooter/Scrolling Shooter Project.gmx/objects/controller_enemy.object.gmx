@@ -49,7 +49,8 @@ alarm[0] = 200;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_restart();
+            <string>keyboard_string = "";
+global.hi = true;
 </string>
           </argument>
         </arguments>
@@ -72,8 +73,10 @@ alarm[0] = 200;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(random(room_width), -16, obj_enemy1);
-alarm[0] = 500;
+            <string>if !global.hi{
+    instance_create(random(room_width), -16, obj_enemy1);
+    alarm[0] = 500;
+}
 </string>
           </argument>
         </arguments>

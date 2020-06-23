@@ -7,20 +7,22 @@ y2 = room_height - room_height / 8;
 offset = 15;
 spacing = 35;
 
-//Draw the highscore table
+//Draw highscore table
 draw_background_stretched(argument1, x1, y1, x2 - x1, y2 - y1);
 if(argument2){
     draw_set_color(c_black);
     draw_rectangle(x1, y1, x2, y2, true);
 }
 
-//Our name
 if string_length(keyboard_string) < 20{
     name = keyboard_string;
 } else keyboard_string = name;
 
+
 ds_list_replace(names, place, name);
 ds_list_replace(scores, place, argument0);
+
+draw_set_font(highscore_font);
 
 //Draw statistics
 for(i = 0; i < 10; i++){
@@ -38,8 +40,7 @@ for(i = 0; i < 10; i++){
     }
 }
 
-//Save our statistics
-if global.hi && keyboard_check(vk_enter){
+if keyboard_check(vk_enter) && global.hi{
     ini_open("scores.ini");
     for(i = 0; i < 10; i++){
         ini_write_string("Names", i + 1, names[|i]);
@@ -49,14 +50,14 @@ if global.hi && keyboard_check(vk_enter){
     game_restart();
 }
 
-
 #define getScores
-//Create arrays
+//Load our arrays
 names = ds_list_create();
 scores = ds_list_create();
 
-//Load data
 ini_open("scores.ini");
+
+//Load our data
 for(i = 0; i < 10; i++){
     currentName = ini_read_string("Names", i + 1, "<nobody>");
     currentScore = ini_read_string("Scores", i + 1, 0);
@@ -73,18 +74,20 @@ for(i = 0; i < 10; i++){
     }
 }
 
-//Add new entry to scoreboard
 if place != -1{
     ds_list_insert(names, place, name);
     ds_list_insert(scores, place, argument0);
 }
 
 ini_close();
+keyboard_string = "";
 global.loaded = true;
 
 #define pause
-if global.hi{
-    motion_set(360, 0);
+if global.hi || controller_life.counter > 0{
+    speed = 0;
+    background_vspeed[0] = 0;
+    image_speed = 0;
     exit;
 }
 

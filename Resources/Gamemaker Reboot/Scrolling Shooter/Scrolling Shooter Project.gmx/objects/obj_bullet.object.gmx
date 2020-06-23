@@ -48,7 +48,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if y &lt; 16 instance_destroy();
+            <string>pause();
+if y &lt; 16 instance_destroy();
 </string>
           </argument>
         </arguments>

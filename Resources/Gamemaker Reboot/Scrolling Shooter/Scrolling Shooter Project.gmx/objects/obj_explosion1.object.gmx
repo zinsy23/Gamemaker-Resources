@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if image_index &gt;= sprite_get_number(spr_explosion1) - 1 instance_destroy();
+            <string>pause();
+if image_index &gt;= sprite_get_number(spr_explosion1) - 1 instance_destroy();
 </string>
           </argument>
         </arguments>
